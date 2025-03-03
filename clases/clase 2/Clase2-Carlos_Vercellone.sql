@@ -1,10 +1,12 @@
 #Carlos Vercellone Clase 2
 
+#1--------------------------------------------------
+
 drop database if exists imdb;
 create database imdb;
 use imdb;
 
-
+#2--------------------------------------------------
 create table film(
 	
 	film_id int not null auto_increment,
@@ -35,17 +37,22 @@ create table film_actor(
 
 );
 
+#3--------------------------------------------------
+
 alter table film
 	add column last_update date;
 
 alter table actor
 	add column last_update date;
 
+#4--------------------------------------------------
 
 alter table film_actor
 	add constraint film_fk foreign key (film_id) references film(film_id),
 	add constraint actor_fk foreign key (actor_id) references actor(actor_id);
 
+
+#5
 
 insert into film (title, description, release_year)
 values ('Iron Man 3', 'Hombre de Acero 3 pelea contra mutante naranja', 2012),
